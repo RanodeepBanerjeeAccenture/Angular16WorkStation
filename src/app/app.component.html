@@ -1,0 +1,166 @@
+<div style="text-align: center;">
+  <!-- <h1>Welcome To Ranodeep's Angular Tutorial</h1> -->
+
+
+  <h1>Parent Component</h1>
+
+  <!-- Parent Component : <input type="text" #Pcomponent (keyup)="0"/>
+
+  <app-child [Pdata]="Pcomponent.value"></app-child> -->
+
+
+  value of child component: {{ Cdata }}
+  <app-child (childevent)="getdata($event)"></app-child>
+
+
+  <!-- ngIf -->
+  <h2>Using ngIf</h2>
+  <input type="radio" name="radio1" (click)="changevalue(true)">True
+  <input type="radio" name="radio1" (click)="changevalue(false)">False
+  <div *ngIf="isvalid">
+    This is valid data
+  </div>
+  <div *ngIf="!isvalid">
+    This is not valid data
+  </div>
+
+  <!-- ngIf with Else -->
+  <h2>Using ngIf with else</h2>
+  <input type="radio" name="radio2" (click)="changevalue(true)">True
+  <input type="radio" name="radio2" (click)="changevalue(false)">False
+  <div *ngIf="isvalid; else elseblock">
+    This is valid data using else
+  </div>
+  <ng-template #elseblock>
+    <div>
+      This is not valid data using else
+    </div>
+  </ng-template>
+
+
+  <!-- ngIf with else and then -->
+  <h2>Using ngIf with else and then</h2>
+  <input type="radio" name="radio3" (click)="changevalue(true)">True
+  <input type="radio" name="radio3" (click)="changevalue(false)">False
+  <div *ngIf="isvalid; then thenblock ; else elseblock"></div>
+  <ng-template #thenblock>
+    <div>
+      This is valid data using else
+    </div>
+  </ng-template>
+
+  <ng-template #elseblock>
+    <div>
+      This is not valid data using else snd then
+    </div>
+  </ng-template>
+  <ng-template #elseblock>
+    <div>
+      This is not valid data using else and then
+    </div>
+  </ng-template>
+
+
+
+  <!-- ngSwitch -->
+
+  <!-- <h2>ngSwitch</h2>
+  <div [ngSwitch]="name">
+    <div *ngSwitchCase="'Ram'">Hello Ram</div>
+    <div *ngSwitchCase="'Ganesh'">Hello Ganesh</div>
+    <div *ngSwitchCase="'Mohan'">Hello Mohan</div>
+    <div *ngSwitchCase="'Rohit'">Hello Rohit</div>
+    <div *ngSwitchDefault>No Data Matched</div>
+  </div> -->
+
+  <h2>ngSwitch</h2>
+  Enter Your Name : <input type="text" #txtname (keyup)="0" />
+
+  <div [ngSwitch]="txtname.value">
+    <div *ngSwitchCase="'Ram'">Hello Ram</div>
+    <div *ngSwitchCase="'Ganesh'">Hello Ganesh</div>
+    <div *ngSwitchCase="'Mohan'">Hello Mohan</div>
+    <div *ngSwitchCase="'Rohit'">Hello Rohit</div>
+    <div *ngSwitchDefault>No Data Matched</div>
+  </div>
+
+
+
+  <!-- ngFor -->
+  <h2>ngFor</h2>
+  <ul>
+    <li *ngFor="let student of Students; let i=index; let f=first; let l=last; let ev=even; let od = odd">
+      {{i+1}} - {{student.name}} - {{f}} - {{l}} - {{ev}} - {{od}}
+    </li>
+  </ul>
+
+
+
+  <!-- Interpolation -->
+  <h2>Wlcome to {{ title }}</h2>
+  <h2>Employee name is {{ empname }}</h2>
+
+
+
+  <!-- Property Binding -->
+  <h2>Property Binding Example</h2>
+  <span [innerHTML]='empname'></span>
+  <img [src]="'https://th.bing.com/th/id/OIP.JWcKdjkJlUbPCu8Z2lKHzgHaH3?rs=1&pid=ImgDetMain'" [height]="200">
+
+
+  <!-- Attribute Binding -->
+  <h2>Attribute Binding Example</h2>
+  <table [attr.border]="bdr" height="200" width="400">
+    <tr>
+      <td [attr.colspan]="cols">Student Details</td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Class</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>Ajeet Kumar</td>
+      <td>10th</td>
+    </tr>
+  </table>
+
+
+  <!-- Event Binding -->
+  <h2>Event Binding Example</h2>
+  <button (click)="showdata()">Click Me</button>
+  <button (click)="show()">Hello</button>
+
+
+  <!-- Two Way Data Binding (Combination of both property and event binding) -->
+  <h2>Two Way Data Binding Example</h2>
+  <!-- Enter Your Name: <input [value]="data" (input)='data=$event.target.value'>  <br>
+  Your Name:  {{data}} -->
+  <input [(ngModel)]="data1">
+  Entered value : {{data1}}
+
+
+
+  <!-- PIPES -->
+  <!-- syntax --     {{'Test' | uppercase}}    -->
+  <h2> Pipes Example</h2>
+  <table border="1">
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Employee Gender</th>
+      <th>Employee Age</th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.employeeid}}</td>
+      <td>{{employee.name | uppercase}}</td>       <!--pipe used-->
+      <td>{{employee.gender}}</td>
+      <td>{{employee.age}}</td>
+    </tr>
+  </table>
+
+
+</div>
+
+<router-outlet></router-outlet>
