@@ -95,4 +95,7 @@ export class AppComponent {
   data: string = 'Ranodeep';
   data1: string = 'Rahul';
 
+
+  dob=new Date(1986,8,2)
+
 }
