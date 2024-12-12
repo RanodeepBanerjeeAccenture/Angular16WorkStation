@@ -154,22 +154,40 @@
     </tr>
     <tr *ngFor="let employee of employees">
       <td>{{employee.employeeid}}</td>
-      <td>{{employee.name | uppercase}}</td>       <!--pipe used-->
+      <td>{{employee.name | uppercase}}</td> <!--pipe used-->
       <td>{{employee.gender}}</td>
       <td>{{employee.age}}</td>
     </tr>
   </table>
 
   <!-- Parameterize pipes -->
-   <h3> Parameterize Pipe Example</h3>
-   <div>
+  <h3> Parameterize Pipe Example</h3>
+  <div>
     {{dob}} <br>
     Medium: {{dob|date: "medium"}}<br>
     Specific format: {{dob|date:"dd/MM/yyyy"}}<br>
     Medium Time: {{dob|date:"mediumTime"}}<br>
 
     Salary: {{Salary|currency:"USD":true}}
-   </div>
+  </div>
+
+  <!-- Chaining Pipes -->
+  <h3>Chaining Pipes Example</h3>
+  <div>
+    Full Date: {{dob|date:"fullDate"|uppercase}}
+  </div>
+
+
+  <!-- Custom Pipe -->
+  <h3>Custom Pipes Example</h3>
+  <table border="1">
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.employeeid}}</td>
+      <td>{{employee.name | mypipe:employee.gender}}</td> <!--pipe used-->
+      <td>{{employee.gender}}</td>
+      <td>{{employee.age}}</td>
+    </tr>
+  </table>
 
 
 </div>

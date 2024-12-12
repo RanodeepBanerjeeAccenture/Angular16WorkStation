@@ -9,12 +9,14 @@ import { StudentModule } from './student/student.module';
 import { AccountModule } from './account/account.module';
 import { Employee } from './employee';
 import { ChildComponent } from './child/child.component';
+import { MypipePipe } from './mypipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    ChildComponent
+    ChildComponent,
+    MypipePipe
   ],
   imports: [
     BrowserModule,
