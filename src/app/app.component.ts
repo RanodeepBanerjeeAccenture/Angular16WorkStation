@@ -97,5 +97,6 @@ export class AppComponent {
 
 
   dob=new Date(1986,8,2)
+  Salary:number=65000;
 
 }
