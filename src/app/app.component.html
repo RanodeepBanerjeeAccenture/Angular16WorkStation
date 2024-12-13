@@ -192,15 +192,29 @@
 
 
   <!-- Routing -->
-  <h2>Router Link Example</h2>
-  <a [routerLink]="['/component1']">Component 1  (navigate to Component 1)</a><br>
-  <a [routerLink]="['/component2']">Component 2  (navigate to Component 2)</a><br>
+  <div>
+    <h2>Router Link Example</h2>
+    <a [routerLink]="['/component1']">Component 1 (navigate to Component 1)</a><br>
+    <a [routerLink]="['/component2']">Component 2 (navigate to Component 2)</a><br>
+    <a [routerLink]="['/parentdetails']">Parent Details (wildcard route example)</a><br>
 
 
-  <button (click)="navigateToComponent1()" >Navigate to Component 1</button>
+    <button (click)="navigateToComponent1()">Navigate to Component 1</button>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 
 
-</div>
-<div>
-  <router-outlet></router-outlet>
+  <!-- Bootstrap Example -->
+  <h2>Bootstrap Example</h2>
+  <button class="btn btn-primary btn-lg">Check Bootstrap</button>
+
+
+
+  <!-- Services Example -->
+  <h2>Services Example</h2>
+  <h3>{{ msg }} - this is coming from services</h3>
+
+
 </div>

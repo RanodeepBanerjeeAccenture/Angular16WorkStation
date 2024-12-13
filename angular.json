@@ -31,7 +31,8 @@
               "src/assets/Screenshot 2024-11-07 103919.png"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },

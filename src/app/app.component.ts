@@ -3,12 +3,14 @@ import { Employee } from './employee';
 import { ChildComponent } from "./child/child.component";
 import { Router } from '@angular/router';
 import { Component1Component } from './component1/component1.component';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   // encapsulation:ViewEncapsulation.None
+  providers:[MessageService]
 })
 export class AppComponent {
   title = 'myfirstapp';
@@ -103,11 +105,15 @@ export class AppComponent {
 
 
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _messageService: MessageService) { }
   navigateToComponent1() {
     this.router.navigate(['/component1']);
   }
 
+  msg: string = '';
+
+  ngOnInit(){
+    this.msg=this._messageService.getmessage();
+  }
 
 }
