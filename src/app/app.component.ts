@@ -1,6 +1,8 @@
 import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { Employee } from './employee';
 import { ChildComponent } from "./child/child.component";
+import { Router } from '@angular/router';
+import { Component1Component } from './component1/component1.component';
 
 @Component({
   selector: 'app-root',
@@ -96,7 +98,16 @@ export class AppComponent {
   data1: string = 'Rahul';
 
 
-  dob=new Date(1986,8,2)
-  Salary:number=65000;
+  dob = new Date(1986, 8, 2)
+  Salary: number = 65000;
+
+
+
+
+  constructor(private router: Router) { }
+  navigateToComponent1() {
+    this.router.navigate(['/component1']);
+  }
+
 
 }

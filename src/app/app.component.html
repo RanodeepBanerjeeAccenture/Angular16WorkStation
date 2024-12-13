@@ -190,6 +190,17 @@
   </table>
 
 
-</div>
 
-<router-outlet></router-outlet>
+  <!-- Routing -->
+  <h2>Router Link Example</h2>
+  <a [routerLink]="['/component1']">Component 1  (navigate to Component 1)</a><br>
+  <a [routerLink]="['/component2']">Component 2  (navigate to Component 2)</a><br>
+
+
+  <button (click)="navigateToComponent1()" >Navigate to Component 1</button>
+
+
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

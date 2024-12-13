@@ -10,13 +10,17 @@ import { AccountModule } from './account/account.module';
 import { Employee } from './employee';
 import { ChildComponent } from './child/child.component';
 import { MypipePipe } from './mypipe.pipe';
+import { Component1Component } from './component1/component1.component';
+import { Component2Component } from './component2/component2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     ChildComponent,
-    MypipePipe
+    MypipePipe,
+    Component1Component,
+    Component2Component
   ],
   imports: [
     BrowserModule,
