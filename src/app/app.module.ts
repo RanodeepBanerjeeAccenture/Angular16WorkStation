@@ -14,6 +14,8 @@ import { MypipePipe } from './mypipe.pipe';
 import { Component1Component } from './component1/component1.component';
 import { Component2Component } from './component2/component2.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,11 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     StudentModule,
     AccountModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
   ],
+  exports:[MatToolbarModule],
   providers: [],
   bootstrap: [AppComponent]
 })
