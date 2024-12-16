@@ -4,13 +4,14 @@ import { ChildComponent } from "./child/child.component";
 import { Router } from '@angular/router';
 import { Component1Component } from './component1/component1.component';
 import { MessageService } from './message.service';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   // encapsulation:ViewEncapsulation.None
-  providers:[MessageService]
+  providers: [MessageService]
 })
 export class AppComponent {
   title = 'myfirstapp';
@@ -105,15 +106,61 @@ export class AppComponent {
 
 
 
-  constructor(private router: Router, private _messageService: MessageService) { }
+
+
+  signupForm!: FormGroup;
+  FirstName: string = "";
+  LastName: string = "";
+  Email: string = "";
+  Password: string = "";
+
+  constructor(private router: Router, private _messageService: MessageService, private frmbuilder: FormBuilder) { }
   navigateToComponent1() {
     this.router.navigate(['/component1']);
+
+
+
+
+
   }
+
+
 
   msg: string = '';
 
-  ngOnInit(){
-    this.msg=this._messageService.getmessage();
+  ngOnInit() {
+    this.msg = this._messageService.getmessage();
+
+
+
+    this.signupForm = this.frmbuilder.group({
+      fname: ['',Validators.required],
+      lname: ['',Validators.required, Validators.maxLength(10)],
+      Emailid: ['',Validators.required, Validators.email],
+      userpassword: ['',Validators.required],
+    });
   }
+
+
+  Register(regForm: any) {
+    console.log(regForm);
+  }
+
+
+  PostData(signupForm: FormGroup) {
+    console.log(signupForm.controls);
+
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 }

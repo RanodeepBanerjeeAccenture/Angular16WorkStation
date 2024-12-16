@@ -217,4 +217,66 @@
   <h3>{{ msg }} - this is coming from services</h3>
 
 
+  <!-- Forms -->
+  <h2>Forms Example</h2>
+  <div class="container">
+    <div class="row">
+      <div class="form-bg">
+        <form #regForm='ngForm' (ngSubmit)="Register(regForm)">
+          <h3 class="text-center">Registration Page (Template Driven)</h3>
+          <br>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name" name="firstname" required ngModel>
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastname" required ngModel>
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email ID" name="email" email required ngModel #email="ngModel">
+            <span class="help-bpx" *ngIf="email.touched && !email.valid">Please Enter Email ID</span>
+          </div>
+          <br>
+          <div class="align-center">
+            <button type="submit" class="btn btn-primary" id="Register" [disabled]="!regForm.valid">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+   </div>
+   <br>
+   <br>
+   <div class="container">
+    <div class="row">
+      <div class="form-bg">
+        <form [formGroup]="signupForm" (ngSubmit)="PostData(signupForm)">
+          <h3 class="text-center">Registration Page (Reactive form)</h3>
+          <br>
+          <div class="form-group">
+            <input type="text" formControlName="fname" placeholder="Your First Name">
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="text" formControlName="lname" placeholder="Your Last Name">
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="text" formControlName="Emailid" placeholder="Your Email ID">
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="password" formControlName="userpassword" placeholder="Your Password">
+          </div>
+          <br>
+          <div class="align-center">
+           <input type="submit" value="PostData" [disabled]="!signupForm.valid">
+          </div>
+        </form>
+      </div>
+    </div>
+
+   </div>
+
+
 </div>

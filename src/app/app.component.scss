@@ -14,3 +14,7 @@ h3{
     text-align: center;
     color: white;
 }
+
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
